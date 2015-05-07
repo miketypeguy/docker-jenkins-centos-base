@@ -25,3 +25,4 @@ zlib-devel
 libxslt-devel
 libxml2-devel
 npm
+wget
