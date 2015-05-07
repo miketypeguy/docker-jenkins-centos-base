@@ -5,7 +5,7 @@ MAINTAINER devops@signiant.com
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 
 # Install a base set of packages
-COPY yum.packages.list /tmp/yum.packages.list
+COPY yum-packages.list /tmp/yum.packages.list
 RUN chmod +r /tmp/yum.packages.list
 RUN yum install -y -q `cat /tmp/yum.packages.list`
 
