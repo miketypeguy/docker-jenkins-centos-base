@@ -1,4 +1,4 @@
-FROM centos:centos6
+FROM centos:centos6.6
 MAINTAINER devops@signiant.com
 
 # Install EPEL
@@ -16,4 +16,5 @@ RUN python get-pip.py
 # Install the AWS CLI - useful everywhere
 RUN pip install awscli
 
-
+# make sure we're running latest of everything
+RUN yum update -y
