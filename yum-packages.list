@@ -10,6 +10,7 @@ dos2unix
 git
 tar
 which
+bzip2
 bzip2-libs
 bzip2-devel
 glibc
