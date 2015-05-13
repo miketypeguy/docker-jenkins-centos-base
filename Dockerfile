@@ -22,6 +22,8 @@ RUN yum update -y
 # Update node and npm
 RUN npm install -g npm
 RUN npm install -g bower
+RUN npm install -g grunt
+RUN npm install -g grunt-cli
 
 # Add our bldmgr user
 ENV BUILD_USER bldmgr
