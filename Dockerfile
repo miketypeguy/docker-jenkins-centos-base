@@ -37,6 +37,9 @@ RUN passwd -f -u $BUILD_USER
 RUN mkdir -p /var/lib/jenkins
 RUN chown -R $BUILD_USER:$BUILD_USER_GROUP /var/lib/jenkins
 
+# Add in our common jenkins node tools for bldmgr
+COPY jenkins_nodes /home/$BUILD_USER/jenkins_nodes
+
 # Make our build user require no tty
 RUN echo "Defaults:$BUILD_USER !requiretty" >> /etc/sudoers
 
@@ -49,5 +52,5 @@ RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
 RUN sed -ri 's/session    required     pam_loginuid.so/#session    required     pam_loginuid.so/g' /etc/pam.d/sshd
 RUN sed -ri 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/g' /etc/ssh/sshd_config
 RUN mkdir -p /home/$BUILD_USER/.ssh
-RUN chown $BUILD_USER:$BUILD_USER_GROUP /home/$BUILD_USER/.ssh
+RUN chown -R $BUILD_USER:$BUILD_USER_GROUP /home/$BUILD_USER
 RUN chmod 700 /home/$BUILD_USER/.ssh
