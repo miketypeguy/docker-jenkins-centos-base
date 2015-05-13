@@ -6,3 +6,5 @@ This starts with a base centos6.6 image and then adds the packages listed in the
 - the EPEL repository
 - pip
 - the AWS CLI
+
+We also create the bldmgr user (note the userID - this must match across all nodes) and setup SSHD.  SSHD is only used if this node is being launched by the Jenkins docker plugin on-the-fly.
