@@ -25,6 +25,9 @@ RUN npm install -g bower
 RUN npm install -g grunt
 RUN npm install -g grunt-cli
 
+# We have to use this fixed version otherwise we get fatal error: socket hang up errors
+RUN npm install -g grunt-connect-proxy@0.1.10
+
 # Add our bldmgr user
 ENV BUILD_USER bldmgr
 ENV BUILD_USER_ID 10012
