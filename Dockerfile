@@ -43,11 +43,13 @@ RUN npm install -g grunt-connect-proxy@0.1.10
 
 # Add our bldmgr user
 ENV BUILD_USER bldmgr
+ENV BUILD_PASS bldmgr
 ENV BUILD_USER_ID 10012
 ENV BUILD_USER_GROUP users
 
 RUN adduser -u $BUILD_USER_ID -g $BUILD_USER_GROUP $BUILD_USER
-RUN passwd -f -u $BUILD_USER
+#RUN passwd -f -u $BUILD_USER
+RUN echo $BUILD_USER:$BUILD_PASS |chpasswd
 
 # Create the folder we use for Jenkins workspaces across all nodes
 RUN mkdir -p /var/lib/jenkins
